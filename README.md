@@ -1,7 +1,7 @@
 # Amazon S3 Storage Lens & Infrastructure Optimizer
 > **Subtitle:** An AWS-Based Approach for Monitoring, Analysis, and Storage Optimization  
 > **Application Name:** S3 Storage Optimizer  
-> **Author:** Pavan Kalyan, Charitha
+> **Authors:** Pavan Kalyan, Charitha, Sravanthi
 
 ---
 
