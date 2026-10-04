@@ -1,11 +1,11 @@
 # Amazon S3 Storage Lens & Infrastructure Optimizer
 > **Subtitle:** An AWS-Based Approach for Monitoring, Analysis, and Storage Optimization  
 > **Application Name:** S3 Storage Optimizer  
-> **Author:** Pavan Kalyan
+> **Author:** Pavan Kalyan, Charitha
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 **S3 Storage Optimizer** is an end-to-end cloud infrastructure and storage management solution. It integrates a high-performance **React 19 + TypeScript** frontend with a **Node.js/Express + AWS SDK v3** backend to visualize, monitor, analyze, and optimize Amazon S3 storage portfolios.
 
@@ -19,7 +19,7 @@
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Frontend
 * **Framework:** React 19 + TypeScript (Strict mode)
@@ -41,7 +41,7 @@
 
 ---
 
-## 📂 Project Architecture
+##  Project Architecture
 
 ```
 s3-storage-optimizer/
@@ -98,7 +98,7 @@ s3-storage-optimizer/
 
 ---
 
-## 🔐 AWS IAM Permissions Required
+##  AWS IAM Permissions Required
 
 To run the backend against live AWS resources, ensure your AWS IAM User, Role, or CLI profile has the following permissions:
 
@@ -186,7 +186,7 @@ STORAGE_LENS_DASHBOARD_ID=s3-storage-lens-reviewer
 
 ---
 
-## 🚀 Setup & Startup Instructions
+##  Setup & Startup Instructions
 
 ### 1. Prerequisites
 * **Node.js**: v18.0.0 or higher
@@ -225,7 +225,7 @@ Open your browser at `http://localhost:5173/` (or the port Vite outputs).
 
 ---
 
-## 🧪 Testing Commands
+##  Testing Commands
 
 ### Run Backend API Smoke Tests
 Executes the automated test suite verifying all 18 backend endpoints:
@@ -248,7 +248,7 @@ npm run lint
 
 ---
 
-## 📡 Complete REST API Endpoints
+##  Complete REST API Endpoints
 
 | Category | Method | Endpoint | Description |
 | :--- | :--- | :--- | :--- |
@@ -281,7 +281,7 @@ npm run lint
 
 ---
 
-## 🗺️ Regional Infrastructure Feature
+##  Regional Infrastructure Feature
 
 The centerpiece **Regional Infrastructure** console (`/#/regional-infrastructure`) provides:
 1. **Interactive World Map**: Natural Earth projection with continents, country boundaries, oceanic labels, and zoom/reset controls.
@@ -295,7 +295,7 @@ The centerpiece **Regional Infrastructure** console (`/#/regional-infrastructure
 
 ---
 
-## 🔄 End-to-End Data Flow Verification
+##  End-to-End Data Flow Verification
 
 ```
 [React UI (Port 5173)]
