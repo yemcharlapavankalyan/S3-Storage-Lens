@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --app-bg: #f3f5f7;
+    --app-canvas: #ffffff;
+    --app-surface: #ffffff;
+    --app-surface-secondary: #f1f4f7;
+    --app-border: #d8dee6;
+    --app-border-hover: #b8c3d0;
+    --app-foreground: #172b3a;
+    --app-muted: #526579;
+    --app-card: #ffffff;
+    --app-card-border: #d8dee6;
+    --app-accent: #e97800;
+    --chart-grid: rgba(23, 43, 58, .12);
+    --chart-legend: #526579;
+    --map-glow-center: #cbd5e1;
+    --map-glow-edge: #e2e8f0;
+  }
+  .dark {
+    color-scheme: dark;
+    --app-bg: #101820;
+    --app-canvas: #111c26;
+    --app-surface: #17232e;
+    --app-surface-secondary: #1b2935;
+    --app-border: #344553;
+    --app-border-hover: #536777;
+    --app-foreground: #e6edf3;
+    --app-muted: #a8b7c4;
+    --app-card: #17232e;
+    --app-card-border: #344553;
+    --app-accent: #ff9900;
+    --chart-grid: rgba(230, 237, 243, .12);
+    --chart-legend: #a8b7c4;
+    --map-glow-center: #1e293b;
+    --map-glow-edge: #070a11;
+  }
+  html { background: var(--app-bg); }
+  body {
+    @apply min-h-screen antialiased font-sans;
+    color: var(--app-foreground);
+    background: var(--app-bg);
+    transition: color .15s ease, background-color .15s ease;
+  }
+  * { border-color: var(--app-border); }
+  :focus-visible { outline: 2px solid var(--app-accent); outline-offset: 2px; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply rounded-full bg-slate-300 dark:bg-slate-700; }
+}
+
+@layer components {
+  .aws-card {
+    @apply relative overflow-hidden rounded-lg border bg-white text-slate-900 shadow-sm transition-colors dark:bg-slate-800 dark:text-slate-100;
+    border-color: var(--app-card-border);
+  }
+  .aws-card:hover { border-color: var(--app-border-hover); }
+  .aws-table-th { @apply border-b bg-slate-100 px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:bg-slate-900 dark:text-slate-300; }
+  .aws-table-td { @apply whitespace-nowrap border-b border-slate-200 px-4 py-3.5 text-xs text-slate-800 dark:border-slate-700 dark:text-slate-200; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-md bg-sky-700 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-sky-800 focus:ring-2 focus:ring-sky-500/50 active:scale-[.99] dark:bg-sky-600 dark:hover:bg-sky-500; }
+  .btn-secondary { @apply inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-3.5 py-2 text-xs font-medium text-slate-700 shadow-sm transition-colors hover:bg-slate-50 hover:text-slate-950 focus:ring-2 focus:ring-sky-500/40 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 dark:hover:text-white; }
+  .btn-ghost { @apply inline-flex items-center justify-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white; }
+  .cloud-grid { background-size: 32px 32px; background-image: linear-gradient(to right, rgba(23,43,58,.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(23,43,58,.04) 1px, transparent 1px); }
+  .dark .cloud-grid { background-image: linear-gradient(to right, rgba(230,237,243,.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(230,237,243,.04) 1px, transparent 1px); }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+}
+
+/* The introduction uses dark-styled utility classes for its illustration. Keep its layout,
+   but remap surfaces and neutral text under the single application theme. */
+html:not(.dark) .intro-page { color: #172b3a; background: #f3f5f7; }
+html:not(.dark) .intro-page [class*="bg-[#"] { background-color: #fff !important; background-image: none !important; }
+html:not(.dark) .intro-page .text-white { color: #172b3a !important; }
+html:not(.dark) .intro-page .text-slate-100,
+html:not(.dark) .intro-page .text-slate-200,
+html:not(.dark) .intro-page .text-slate-300 { color: #526579 !important; }
+html:not(.dark) .intro-page [class*="border-white/"] { border-color: #d8dee6 !important; }
+html:not(.dark) .intro-page .aws-card { background-color: #fff !important; background-image: none !important; border-color: #d8dee6 !important; color: #172b3a !important; }
+html:not(.dark) .intro-page .aws-card .text-white,
+html:not(.dark) .intro-page .aws-card .text-slate-100 { color: #172b3a !important; }
+html:not(.dark) .intro-page .aws-card .text-slate-300,
+html:not(.dark) .intro-page .aws-card .text-slate-400 { color: #526579 !important; }
+/* Keep legacy utility-only controls readable inside operational panels in dark mode. */
+.dark .aws-card [class~="text-slate-900"] { color: #e6edf3 !important; }
+.dark .aws-card [class~="text-slate-800"] { color: #d8e2ea !important; }
+.dark .aws-card [class~="text-slate-700"] { color: #c4d0da !important; }
+.dark .aws-card [class~="text-slate-600"] { color: #a8b7c4 !important; }
+.dark .aws-card [class~="text-slate-500"] { color: #9aabb8 !important; }
+.dark .aws-card [class~="bg-white"] { background-color: #1b2935 !important; }
+.dark .aws-card [class~="bg-slate-50"] { background-color: #1b2935 !important; }
+.dark .aws-card [class~="border-slate-200"] { border-color: #344553 !important; }
+.dark .aws-card input:not([type="checkbox"]),
+.dark .aws-card select,
+.dark .aws-card textarea { background: #111c26 !important; color: #e6edf3 !important; border-color: #536777 !important; }
+.dark [class*="bg-emerald-50"] { background-color: rgba(16,185,129,.12) !important; }
+.dark [class*="text-emerald-950"],
+.dark [class*="text-emerald-900"] { color: #d1fae5 !important; }
+.dark [class*="text-emerald-800"] { color: #a7f3d0 !important; }
